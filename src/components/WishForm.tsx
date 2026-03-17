@@ -332,7 +332,7 @@ export default function WishForm() {
                     value={fromName}
                     onChange={(e) => setFromName(e.target.value)}
                     required
-                    placeholder="Contoh: Rajendra"
+                    placeholder="Contoh: Ranoo"
                     className="
             w-full px-4 py-4 
             bg-white/10 border-2 border-white/20 rounded-xl 
@@ -355,7 +355,7 @@ export default function WishForm() {
                     value={toName}
                     onChange={(e) => setToName(e.target.value)}
                     required
-                    placeholder="Contoh: Keluarga Arman"
+                    placeholder="Contoh: Keluarga Ranoo"
                     className="
             w-full px-4 py-4 
             bg-white/10 border-2 border-white/20 rounded-xl 
