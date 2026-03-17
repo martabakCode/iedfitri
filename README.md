@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kartu Ucapan Idul Fitri 🌙
 
-## Getting Started
+Website untuk membuat dan berbagi kartu ucapan Idul Fitri digital. Dibuat dengan Next.js, Supabase, dan Cloudflare R2.
 
-First, run the development server:
+## 🚀 Quick Start
+
+### 1. Clone dan Install
+
+```bash
+npm install
+```
+
+### 2. Setup Environment Variables
+
+Copy `.env.local.example` ke `.env.local` dan isi dengan kredensial:
+
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Cloudflare R2
+R2_ENDPOINT=your_r2_endpoint
+R2_ACCESS_KEY=your_r2_access_key
+R2_SECRET_KEY=your_r2_secret_key
+R2_BUCKET=your_r2_bucket_name
+R2_PUBLIC_URL=your_r2_public_url
+```
+
+### 3. Setup Database
+
+1. Buat project di [Supabase](https://supabase.com)
+2. Buka SQL Editor
+3. Copy dan jalankan query dari [`supabase-setup.sql`](supabase-setup.sql)
+
+### 4. Setup Cloudflare R2
+
+1. Buat bucket di [Cloudflare R2](https://dash.cloudflare.com/?to=/:account/r2)
+2. Buat API keys dengan permission Write
+3. Note: R2 tidak memerlukan payment method untuk free tier
+
+### 5. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Struktur Project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── api/wishes/route.ts   # API untuk create wish
+│   ├── create/page.tsx       # Halaman buat kartu
+│   ├── u/[slug]/page.tsx     # Halaman view kartu
+│   ├── page.tsx              # Landing page
+│   └── layout.tsx            # Root layout
+├── components/
+│   ├── WishCard.tsx          # Komponen kartu ucapan
+│   ├── WishForm.tsx          # Form buat ucapan
+│   └── KetupatDecoration.tsx # Dekorasi ketupat
+└── lib/
+    ├── supabase.ts            # Supabase client
+    └── r2.ts                  # Cloudflare R2 client
+```
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js 14 (App Router), TailwindCSS
+- **Database**: Supabase (PostgreSQL)
+- **Storage**: Cloudflare R2
+- **Deployment**: Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Cara Deploy ke Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push code ke GitHub
+2. Import project di [Vercel](https://vercel.com)
+3. Set environment variables di Vercel dashboard
+4. Deploy!
 
-## Deploy on Vercel
+## 🔗 Link Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Landing: https://eidwish.vercel.app
+- Create: https://eidwish.vercel.app/create
+- View: https://eidwish.vercel.app/u/3f8a92
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+MIT

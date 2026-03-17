@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1010.0",
+    "@supabase/supabase-js": "^2.99.2",
+    "framer-motion": "^12.37.0",
+    "nanoid": "^5.1.7",
     "next": "16.1.7",
     "react": "19.2.3",
     "react-dom": "19.2.3"
